@@ -1,0 +1,36 @@
+﻿@model DataAccessLayer.StudentDetail
+
+
+<form id="studentForm">
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mobilenumber)
+        @Html.TextBoxFor(m => m.Mobilenumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StateId)
+        @Html.DropDownListFor(m => m.StateId, (List<SelectListItem>)ViewBag.states,
+            "-- Select State --", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender)
+        @Html.TextBoxFor(m => m.Gender, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DOB)
+        @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}",
+            new { @class = "form-control", type = "date" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+            
+   
+

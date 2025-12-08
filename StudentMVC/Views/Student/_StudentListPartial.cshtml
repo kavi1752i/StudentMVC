@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DataAccessLayer.StudentDetail>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobilenumber</th>
+            <th>StateId</th>
+            <th>Gender</th>
+            <th>DOB</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+        <tr>
+            <td>@student.Name</td>
+            <td>@student.Email</td>
+            <td>@student.Mobilenumber</td>
+            <td>@student.StateName</td>
+            <td>@student.Gender</td>
+            <td>@student.DOB.ToString("dd-MM-yyyy")</td>
+            <td>
+                <button class="btn btn-sm btn-info edit-student" data-id="@student.Id">Edit</button>
+
+                <button class="btn btn-sm btn-danger details-student" data-id="@student.Id">Details</button>
+                <button class="btn btn-sm btn-danger delete-student" data-id="@student.Id">Delete</button>
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

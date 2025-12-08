@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DataAccessLayer.StudentDetail>
+
+@{
+    ViewData["Title"] = "Allstudent";
+}
+
+<h1>Allstudent</h1>
+
+<table class="table table-bordered table-striped" id="StudentTable">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>State</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Mobilenumber</td>
+                <td>@item.StateName</td>
+                <td>@item.Gender</td>
+                <td>@item.DOB</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#StudentTable').DataTable();
+        });
+    </script>
+}

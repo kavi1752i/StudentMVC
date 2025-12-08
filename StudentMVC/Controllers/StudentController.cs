@@ -93,7 +93,7 @@ namespace StudentMVC.Controllers
             return View("Index", students);
         }
 
-        public PartialViewResult CreateEditStudent(int? id)
+        public IActionResult CreateEditStudent(int? id)
         {
             var student = id.HasValue ? obj.Getstudentbyid(id.Value) : new StudentDetail();
             ViewBag.states = obj.GetState()
@@ -103,7 +103,7 @@ namespace StudentMVC.Controllers
             Value = s.StateId.ToString()
         }).ToList();
 
-            return PartialView("_CreateEditStudentPartial", student);
+            return View("_CreateEditStudentPartial", student);
         }
 
         public JsonResult SaveStudent(StudentDetail p)

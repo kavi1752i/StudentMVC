@@ -23,7 +23,7 @@ namespace StudentMVC.Controllers
             try
             {
 
-                var data = obj.Getstudent();
+                var data = obj.Getstudentd();
                 return View("AllStudent", data);  
             }
             catch (Exception ex)
